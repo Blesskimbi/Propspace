@@ -28,9 +28,9 @@ const updateUserProfile = async (req, res) => {
     }
 
     // Update fields if provided
-    user.username = req.body.username || user.username;
-    user.phone = req.body.phone || user.phone;
-    user.avatar = req.body.avatar || user.avatar;
+    if (req.body.username !== undefined) user.username = req.body.username || user.username;
+    if (req.body.phone !== undefined) user.phone = req.body.phone;
+    if (req.body.avatar !== undefined) user.avatar = req.body.avatar;
 
     const updatedUser = await user.save();
 

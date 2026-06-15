@@ -12,11 +12,13 @@ const { protect } = require('../middleware/authMiddleware');
 
 // Public routes
 router.get('/', getAllProperties);
-router.get('/:id', getPropertyById);
 
 // Protected routes
 router.post('/', protect, createProperty);
 router.get('/user/my-listings', protect, getMyListings);
+
+// Must come AFTER /user/my-listings to avoid swallowing it as :id
+router.get('/:id', getPropertyById);
 router.put('/:id', protect, updateProperty);
 router.delete('/:id', protect, deleteProperty);
 

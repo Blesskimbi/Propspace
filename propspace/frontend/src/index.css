@@ -1,13 +1,79 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* ============================================================
+   PROPSPACE — Global Styles
+   Reference: Estatia — dark slate, warm amber, serif accents
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Brand */
+  --amber:        #C8956C;   /* warm amber — primary accent */
+  --amber-dark:   #b07a52;
+  --amber-light:  #f5ede6;
+  --slate:        #2C3E50;   /* dark slate — navbar, headings */
+  --slate-mid:    #3d5166;
+  --slate-light:  #f0f2f5;
+
+  /* Text */
+  --text:         #1a1a1a;
+  --text-mid:     #4a4a4a;
+  --text-muted:   #888888;
+  --text-light:   #b0b0b0;
+
+  /* Backgrounds */
+  --bg:           #f5f5f5;
+  --bg-card:      #ffffff;
+  --bg-section:   #f0ece8;   /* warm off-white for service cards bg */
+
+  /* Borders & shadows */
+  --border:       #e4e0db;
+  --shadow-sm:    0 1px 4px rgba(0,0,0,0.07);
+  --shadow-md:    0 4px 20px rgba(0,0,0,0.10);
+  --shadow-lg:    0 12px 40px rgba(0,0,0,0.14);
+
+  /* Radius */
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-lg: 14px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+  font-size: 15px;
 }
+
+h1, h2, h3, h4 {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.25;
+}
+
+.serif { font-family: 'Playfair Display', Georgia, serif; }
+
+a { text-decoration: none; color: inherit; }
+button, input, select, textarea { font-family: inherit; }
+
+/* Spinner */
+@keyframes spin { to { transform: rotate(360deg); } }
+.ps-spinner { animation: spin 0.75s linear infinite; }
+
+/* Global focus ring */
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--amber) !important;
+  box-shadow: 0 0 0 3px rgba(200,149,108,0.18) !important;
+}
+
+button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }

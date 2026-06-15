@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import './App.css';
 import { useAuth } from './context/AuthContext';
 
 // Pages (we will create these next)
